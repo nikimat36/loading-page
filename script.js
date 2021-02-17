@@ -33,13 +33,15 @@ function onLoad() {
 
   //-- set video for desktop / mobile
     var videoMP4 = document.getElementById("myVideo").getAttribute("srcdesk");
-    if(window.width < 721){
-      videoMP4 = document.getElementById("myVideo").getAttribute("scrmob");
+    if(window.innerWidth < 721){
+      videoMP4 = document.getElementById("myVideo").getAttribute("srcmob");
     }  
     var source = document.createElement("source");
     source.setAttribute("src", videoMP4);
     source.setAttribute("type", "video/mp4"); 
     video.appendChild(source);
+    //console.log(window.innerWidth);
+    //console.log(source.getAttribute("src"));
 }
 
 
