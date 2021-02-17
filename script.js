@@ -21,14 +21,28 @@ function stopVideo() {
 function blurBg(){ video.classList.add("blurBg"); }
 function focusBg(){ video.classList.remove("blurBg"); }
 
-//-- typing effect
-function typeWriter() {
+
+
+function onLoad() {
+  //-- typing effect
     if (i < txt.length) {
       document.getElementById("p_loading_page").innerHTML += txt.charAt(i);
       i++;
-      setTimeout(typeWriter, speed);
+      setTimeout(onLoad, speed);
     }
+
+  //-- set video for desktop / mobile
+    var videoMP4 = document.getElementById("myVideo").getAttribute("srcdesk");
+    if(window.width < 721){
+      videoMP4 = document.getElementById("myVideo").getAttribute("scrmob");
+    }  
+    var source = document.createElement("source");
+    source.setAttribute("src", videoMP4);
+    source.setAttribute("type", "video/mp4"); 
+    video.appendChild(source);
 }
+
+
 
 //-- navbar
 
